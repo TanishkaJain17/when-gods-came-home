@@ -74,18 +74,20 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 @keyframes scrl{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(.65)}}
 
 /* HERO VISUAL */
-.nav-logo-img{
-  width:58px;
-  height:58px;
-  object-fit:contain;
-  display:block;
+.logo-img{
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+  transition: all .3s ease;
 }
-  .hero-logo{
-  width:140px;
-  height:auto;
-  display:block;
-  margin:0 auto 28px;
-  filter:drop-shadow(0 10px 30px rgba(0,0,0,.3));
+.hero-logo{
+  width: 140px;
+  max-width: 40vw;
+  height: auto;
+  display: block;
+  margin: 0 auto 28px;
+  filter: drop-shadow(0 10px 30px rgba(0,0,0,.3));
 }
 .hero-visual{position:relative;overflow:hidden}
 .hv-bg{position:absolute;inset:0;background:linear-gradient(145deg,#3D1500 0%,#1A0800 55%,#0D0400 100%)}
@@ -173,13 +175,18 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1100px;margin:0 auto}
 .team-card{border:1px solid rgba(196,137,42,.15);padding:36px;display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:start;transition:.4s}
 .team-card:hover{border-color:rgba(196,137,42,.4);background:rgba(196,137,42,.03)}
-.team-img{width:150px;height:170px;object-fit:cover;filter:sepia(15%) contrast(1.1) brightness(.98)}
+
 .team-img-ph{width:150px;height:170px;background:rgba(196,137,42,.07);border:1px dashed rgba(196,137,42,.25);display:flex;align-items:center;justify-content:center;font-size:.6rem;text-align:center;color:rgba(196,137,42,.4);letter-spacing:.1em;padding:10px}
 .ti-role{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
 .ti-name{font-family:var(--fd);font-size:clamp(1.1rem,1.8vw,1.5rem);color:var(--parch-l);margin-bottom:6px}
 .ti-desig{font-family:var(--fh);font-style:italic;color:var(--gold-d);font-size:.85rem;margin-bottom:14px}
 .ti-bio{font-size:.87rem;color:rgba(240,222,176,.58);line-height:1.7}
-
+.footer-logo{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
 /* EVENT DETAILS (museum invitation) */
 .evt-sec{background:var(--parch);text-align:center}
 .museum-inv{max-width:680px;margin:0 auto;padding:56px 72px;border:2px solid rgba(92,42,16,.28);background:var(--parch-l);position:relative}
@@ -232,7 +239,10 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .btn-fcta:hover::before{transform:translateX(0)}
 .btn-fcta span{position:relative;z-index:1}
 .fcta-meta{color:rgba(240,222,176,.25);font-size:.65rem;margin-top:22px;letter-spacing:.1em}
-
+.nav.on .logo-img{
+  width: 44px;
+  height: 44px;
+}
 /* FOOTER */
 .footer{background:#0C0400;padding:56px clamp(20px,5vw,80px) 28px;border-top:1px solid rgba(196,137,42,.18)}
 .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:56px;padding-bottom:56px;border-bottom:1px solid rgba(196,137,42,.1)}
@@ -288,16 +298,17 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-<a href="#" class="nav-logo">
-  <img src="cbf-logo.png" alt="Cobalt Blue Foundation" class="nav-logo-img">
-  <div class="nav-brand">
-    Cobalt Blue Foundation
-    <small>Art · Culture · Heritage</small>
-  </div>
-</a>
-    <div class="nav-brand">Cobalt Blue Foundation <small>Art · Culture · Heritage</small></div>
+  <a href="#" class="nav-logo">
+    <img src="cbf-logo.png" alt="Cobalt Blue Foundation" class="nav-logo-img">
+    <div class="nav-brand">
+      Cobalt Blue Foundation
+      <small>Art · Culture · Heritage</small>
+    </div>
   </a>
-  <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" class="nav-btn">Reserve Your Seat</a>
+
+  <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" class="nav-btn">
+    Reserve Your Seat
+  </a>
 </nav>
 
 <!-- HERO -->
@@ -442,18 +453,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   <div class="about-grid">
     <div class="about-logo-wrap rev">
       <div class="about-logo-circle">
-        <svg viewBox="0 0 80 80" style="width:100%;height:100%" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 8 Q24 5 27 13 L30 22 Q22 26 18 20 Z" fill="#C0392B"/>
-          <path d="M27 10 Q34 7 35 15 L33 23 Q27 21 27 15 Z" fill="#E05500"/>
-          <circle cx="30" cy="13" r="4" fill="#A02800"/>
-          <circle cx="30" cy="7" r="1.5" fill="#aaa"/>
-          <circle cx="26" cy="6.5" r="1.2" fill="#aaa"/>
-          <circle cx="34" cy="6.5" r="1.2" fill="#aaa"/>
-          <path d="M20 20 Q26 32 24 42 Q18 46 15 40 L13 30 Q15 20 20 20 Z" fill="#8B2000"/>
-          <path d="M30 22 Q40 23 40 33 Q38 42 24 42 Z" fill="#E05500" opacity=".9"/>
-          <text x="4" y="62" font-family="cursive" font-size="11" fill="#E05500" font-weight="bold">Cobalt-Blue</text>
-          <text x="12" y="72" font-family="sans-serif" font-size="7" fill="#444" letter-spacing="2">FOUNDATION</text>
-        </svg>
+       <img src="cbf-logo.png" alt="CBF Logo" class="logo-img">
       </div>
       <div class="pillar-wrap">
         <span class="pillar">Mythology</span><span class="pillar">Art</span><span class="pillar">Culture</span>
@@ -476,32 +476,46 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   </div>
 </section>
 
-<!-- FOUNDING TEAM -->
+
+   <!-- FOUNDING TEAM -->
 <section class="sec team-sec" id="team">
+
   <div class="sh rev" style="text-align:center">
     <span class="sh-lbl" style="color:var(--gold)">The Visionaries</span>
     <h2 class="sh-ttl lt">Meet the Team Behind CBF</h2>
     <div class="sh-div"></div>
   </div>
+
   <div class="team-grid">
+
+    <!-- Founder -->
     <div class="team-card rev">
-      <!-- Founder photo: Sundeep Verma wears teal kurta, rocky background -->
-     <img src="founder.jpg" alt="Sundeep Verma" class="team-img">
+      <img src="founder.jpg" alt="Sundeep Verma" class="team-img">
+
       <div>
         <div class="ti-role">Founder</div>
         <h3 class="ti-name">Sundeep Verma</h3>
         <div class="ti-desig">Storytelling · Mythology · Art Psychology</div>
-        <p class="ti-bio">Author, graphic novelist and storyteller with senior leadership experience at Ogilvy, Grey Worldwide and Omnicom Group. Holds an MA in Narrative Environment Design from Central Saint Martins, UK. Internationally recognised for workshops, keynotes and publications connecting myth and wellbeing.</p>
+        <p class="ti-bio">
+          Author, graphic novelist and storyteller with senior leadership experience at Ogilvy, Grey Worldwide and Omnicom Group. Holds an MA in Narrative Environment Design from Central Saint Martins, UK. Internationally recognised for workshops, keynotes and publications connecting myth and wellbeing.
+        </p>
       </div>
     </div>
-  <img src="cofounder.jpg" alt="Ruchi Ruuh" class="team-img">
+
+    <!-- Co-Founder -->
+    <div class="team-card rev">
+      <img src="cofounder.jpg" alt="Ruchi Ruuh" class="team-img">
+
       <div>
         <div class="ti-role">Co-Founder</div>
         <h3 class="ti-name">Ruchi Ruuh</h3>
         <div class="ti-desig">Psychology · Design · Wellbeing</div>
-        <p class="ti-bio">Qualified counselling psychologist with a BA in Design (NIFT), MA in Design (Nottingham Trent) and PG Diploma in Counselling Psychology. Brings a compassionate, design-informed approach to emotional wellbeing and youth development.</p>
+        <p class="ti-bio">
+          Qualified counselling psychologist with a BA in Design (NIFT), MA in Design (Nottingham Trent) and PG Diploma in Counselling Psychology. Brings a compassionate, design-informed approach to emotional wellbeing and youth development.
+        </p>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -585,16 +599,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
     <div>
       <div class="fl-logo">
         <div class="fl-logo-circ">
-          <svg viewBox="0 0 56 56" style="width:100%;height:100%" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 7 Q24 4 27 12 L30 21 Q21 25 17 19 Z" fill="#C0392B"/>
-            <path d="M27 9 Q34 6 35 14 L33 22 Q27 20 27 14 Z" fill="#E05500"/>
-            <circle cx="30" cy="12" r="4" fill="#A02800"/>
-            <circle cx="30" cy="6" r="1.5" fill="#aaa"/>
-            <circle cx="26" cy="5.5" r="1.2" fill="#aaa"/>
-            <circle cx="34" cy="5.5" r="1.2" fill="#aaa"/>
-            <path d="M20 19 Q26 31 24 41 Q18 45 15 39 L13 29 Q15 19 20 19 Z" fill="#8B2000"/>
-            <path d="M30 21 Q40 22 40 32 Q38 41 24 41 Z" fill="#E05500" opacity=".9"/>
-          </svg>
+        <img src="cbf-logo.png" alt="CBF Logo" class="logo-img">
         </div>
         <div class="fl-brand">Cobalt Blue Foundation<small>Art · Culture · Heritage · Mythology</small></div>
       </div>
@@ -727,19 +732,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 // Try to load team images from uploaded files
-async function tryLoadImage(id, filename) {
-  try {
-    const data = await window.fs.readFile(filename);
-    const blob = new Blob([data]);
-    const url = URL.createObjectURL(blob);
-    const el = document.getElementById(id);
-    if (el) {
-      const img = document.createElement('img');
-      img.src = url; img.className = 'team-img'; img.alt = el.querySelector('span')?.textContent || '';
-      el.replaceWith(img);
-    }
-  } catch(e) {}
-}
+
 // Attempt (will silently fail if files not found by exact name)
 
 </script>
