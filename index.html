@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="When Gods Came Home – The Story Behind The Images That Shaped A Nation's Imagination. A lecture by Cobalt Blue Foundation. 27 June 2026.">
 <title>When Gods Came Home | Cobalt Blue Foundation</title>
+
+<link rel="icon" type="image/png" href="cbf-logo.png">
+<meta name="theme-color" content="#180800">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="When Gods Came Home | Cobalt Blue Foundation">
+<meta property="og:description" content="The Story Behind The Images That Shaped A Nation's Imagination. A lecture by Cobalt Blue Foundation — 27 June 2026, live via Zoom.">
+<meta property="og:image" content="cbf-logo.png">
+<meta property="og:url" content="https://your-username.github.io/your-repo-name/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="When Gods Came Home | Cobalt Blue Foundation">
+<meta name="twitter:description" content="The Story Behind The Images That Shaped A Nation's Imagination. 27 June 2026 · Live via Zoom.">
+<meta name="twitter:image" content="cbf-logo.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -30,7 +44,8 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;transition:.4s}
 .nav.on{background:rgba(24,8,0,.95);backdrop-filter:blur(14px);padding:12px 48px;border-bottom:1px solid rgba(196,137,42,.25)}
 .nav-logo{display:flex;align-items:center;gap:14px;text-decoration:none}
-.nav-logo-svg{width:40px;height:40px;flex-shrink:0}
+.nav-logo-img{width:40px;height:40px;object-fit:contain;display:block;flex-shrink:0;transition:.3s}
+.nav.on .nav-logo-img{width:32px;height:32px}
 .nav-brand{font-family:var(--fd);font-size:.9rem;color:#fff;line-height:1.2}
 .nav-brand small{display:block;font-family:var(--fb);font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
 .nav-btn{background:var(--orange);color:#fff;padding:10px 26px;font-family:var(--fb);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;transition:.3s;border:2px solid var(--orange)}
@@ -175,18 +190,11 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1100px;margin:0 auto}
 .team-card{border:1px solid rgba(196,137,42,.15);padding:36px;display:grid;grid-template-columns:150px 1fr;gap:28px;align-items:start;transition:.4s}
 .team-card:hover{border-color:rgba(196,137,42,.4);background:rgba(196,137,42,.03)}
-
-.team-img-ph{width:150px;height:170px;background:rgba(196,137,42,.07);border:1px dashed rgba(196,137,42,.25);display:flex;align-items:center;justify-content:center;font-size:.6rem;text-align:center;color:rgba(196,137,42,.4);letter-spacing:.1em;padding:10px}
 .ti-role{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
 .ti-name{font-family:var(--fd);font-size:clamp(1.1rem,1.8vw,1.5rem);color:var(--parch-l);margin-bottom:6px}
 .ti-desig{font-family:var(--fh);font-style:italic;color:var(--gold-d);font-size:.85rem;margin-bottom:14px}
 .ti-bio{font-size:.87rem;color:rgba(240,222,176,.58);line-height:1.7}
-.footer-logo{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  display:block;
-}
+
 /* EVENT DETAILS (museum invitation) */
 .evt-sec{background:var(--parch);text-align:center}
 .museum-inv{max-width:680px;margin:0 auto;padding:56px 72px;border:2px solid rgba(92,42,16,.28);background:var(--parch-l);position:relative}
@@ -220,7 +228,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .team-img{
   width:100%;
   max-width:320px;
-  height:420px;
+  aspect-ratio:3/4;
   object-fit:cover;
   border-radius:24px;
   border:1px solid rgba(196,137,42,.35);
@@ -239,15 +247,12 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .btn-fcta:hover::before{transform:translateX(0)}
 .btn-fcta span{position:relative;z-index:1}
 .fcta-meta{color:rgba(240,222,176,.25);font-size:.65rem;margin-top:22px;letter-spacing:.1em}
-.nav.on .logo-img{
-  width: 44px;
-  height: 44px;
-}
+
 /* FOOTER */
 .footer{background:#0C0400;padding:56px clamp(20px,5vw,80px) 28px;border-top:1px solid rgba(196,137,42,.18)}
 .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:56px;padding-bottom:56px;border-bottom:1px solid rgba(196,137,42,.1)}
 .fl-logo{display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.fl-logo-circ{width:52px;height:52px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
+.fl-logo-circ{width:58px;height:58px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
 .fl-brand{font-family:var(--fd);font-size:.92rem;color:var(--parch-l);line-height:1.3}
 .fl-brand small{display:block;font-family:var(--fb);font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
 .fl-tag{font-family:var(--fh);font-style:italic;color:rgba(240,222,176,.4);font-size:.88rem}
@@ -298,7 +303,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <a href="#" class="nav-logo">
+  <a href="#top" class="nav-logo">
     <img src="cbf-logo.png" alt="Cobalt Blue Foundation" class="nav-logo-img">
     <div class="nav-brand">
       Cobalt Blue Foundation
@@ -306,7 +311,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
     </div>
   </a>
 
-  <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" class="nav-btn">
+  <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="nav-btn">
     Reserve Your Seat
   </a>
 </nav>
@@ -341,7 +346,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
       <div class="seats-tag">Limited Seats</div>
     </div>
     <div class="hero-actions">
-      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" class="btn-hero"><span>Reserve Your Seat</span></a>
+      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-hero"><span>Reserve Your Seat</span></a>
       <a href="#story" class="btn-ghost">Discover The Story</a>
     </div>
     <div class="scroll-cue"><div class="scroll-line"></div><span>Scroll</span></div>
@@ -405,7 +410,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
     <p class="story-p lg">How did this happen?</p>
     <p class="story-p cen">That is the story we will explore.</p>
     <div style="text-align:center;margin-top:52px" class="story-p">
-      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" style="display:inline-block;padding:14px 42px;border:2px solid var(--gold);color:var(--gold);text-decoration:none;font-family:var(--fb);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;transition:.3s" onmouseover="this.style.background='rgba(196,137,42,.12)'" onmouseout="this.style.background='transparent'">Reserve Your Seat</a>
+      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:14px 42px;border:2px solid var(--gold);color:var(--gold);text-decoration:none;font-family:var(--fb);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;transition:.3s" onmouseover="this.style.background='rgba(196,137,42,.12)'" onmouseout="this.style.background='transparent'">Reserve Your Seat</a>
     </div>
   </div>
 </section>
@@ -418,33 +423,33 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
     <div class="sh-div"></div>
   </div>
   <div class="disc-grid">
-    <div class="disc-card rev"><div class="dc-n">I</div><h3 class="dc-t">The Picture on the Wall</h3><p class="dc-sub">Where the journey begins — the familiar image hiding its origin</p></div>
-    <div class="disc-card rev"><div class="dc-n">II</div><h3 class="dc-t">Before the Faces Arrived</h3><p class="dc-sub">The visual landscape of India before the transformation</p></div>
-    <div class="disc-card rev"><div class="dc-n">III</div><h3 class="dc-t">Iron Tracks & Inked Stones</h3><p class="dc-sub">Railways, printing presses, and the mechanics of imagination</p></div>
-    <div class="disc-card rev"><div class="dc-n">IV</div><h3 class="dc-t">The New Faces of Old Stories</h3><p class="dc-sub">How ancient narratives found entirely new visual forms</p></div>
-    <div class="disc-card rev"><div class="dc-n">V</div><h3 class="dc-t">The Art of Multiplication</h3><p class="dc-sub">When a single image became millions of images</p></div>
-    <div class="disc-card rev"><div class="dc-n">VI</div><h3 class="dc-t">The Journey Home</h3><p class="dc-sub">How pictures entered the homes and hearts of a nation</p></div>
-    <div class="disc-card rev"><div class="dc-n">VII</div><h3 class="dc-t">The Invisible Author</h3><p class="dc-sub">The person behind the transformation — and why we forgot them</p></div>
-    <div class="disc-card rev"><div class="dc-n">VIII</div><h3 class="dc-t">What We Inherited</h3><p class="dc-sub">The living legacy of images that shaped our imagination</p></div>
+    <div class="disc-card"><div class="dc-n">I</div><h3 class="dc-t">The Picture on the Wall</h3><p class="dc-sub">Where the journey begins — the familiar image hiding its origin</p></div>
+    <div class="disc-card"><div class="dc-n">II</div><h3 class="dc-t">Before the Faces Arrived</h3><p class="dc-sub">The visual landscape of India before the transformation</p></div>
+    <div class="disc-card"><div class="dc-n">III</div><h3 class="dc-t">Iron Tracks & Inked Stones</h3><p class="dc-sub">Railways, printing presses, and the mechanics of imagination</p></div>
+    <div class="disc-card"><div class="dc-n">IV</div><h3 class="dc-t">The New Faces of Old Stories</h3><p class="dc-sub">How ancient narratives found entirely new visual forms</p></div>
+    <div class="disc-card"><div class="dc-n">V</div><h3 class="dc-t">The Art of Multiplication</h3><p class="dc-sub">When a single image became millions of images</p></div>
+    <div class="disc-card"><div class="dc-n">VI</div><h3 class="dc-t">The Journey Home</h3><p class="dc-sub">How pictures entered the homes and hearts of a nation</p></div>
+    <div class="disc-card"><div class="dc-n">VII</div><h3 class="dc-t">The Invisible Author</h3><p class="dc-sub">The person behind the transformation — and why we forgot them</p></div>
+    <div class="disc-card"><div class="dc-n">VIII</div><h3 class="dc-t">What We Inherited</h3><p class="dc-sub">The living legacy of images that shaped our imagination</p></div>
   </div>
 </section>
 
 <!-- WHO SHOULD ATTEND -->
 <section class="sec who-sec" id="audience">
-  <div class="sh" style="text-align:center">
+  <div class="sh rev" style="text-align:center">
     <span class="sh-lbl">The Gathering</span>
     <h2 class="sh-ttl lt">Who Should Attend</h2>
     <div class="sh-div"></div>
   </div>
   <div class="aud-grid">
-    <div class="aud-tag rev">Students</div>
-    <div class="aud-tag rev">Teachers</div>
-    <div class="aud-tag rev">Art Enthusiasts</div>
-    <div class="aud-tag rev">History Enthusiasts</div>
-    <div class="aud-tag rev">Mythology Enthusiasts</div>
-    <div class="aud-tag rev">Culture Researchers</div>
-    <div class="aud-tag rev">Parents</div>
-    <div class="aud-tag rev">Curious Minds</div>
+    <div class="aud-tag">Students</div>
+    <div class="aud-tag">Teachers</div>
+    <div class="aud-tag">Art Enthusiasts</div>
+    <div class="aud-tag">History Enthusiasts</div>
+    <div class="aud-tag">Mythology Enthusiasts</div>
+    <div class="aud-tag">Culture Researchers</div>
+    <div class="aud-tag">Parents</div>
+    <div class="aud-tag">Curious Minds</div>
   </div>
 </section>
 
@@ -490,7 +495,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 
     <!-- Founder -->
     <div class="team-card rev">
-      <img src="founder.jpg" alt="Sundeep Verma" class="team-img">
+      <img src="founder.jpg" alt="Sundeep Verma" class="team-img" loading="lazy">
 
       <div>
         <div class="ti-role">Founder</div>
@@ -504,7 +509,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 
     <!-- Co-Founder -->
     <div class="team-card rev">
-      <img src="cofounder.jpg" alt="Ruchi Ruuh" class="team-img">
+      <img src="cofounder.jpg" alt="Ruchi Ruuh" class="team-img" loading="lazy">
 
       <div>
         <div class="ti-role">Co-Founder</div>
@@ -533,7 +538,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
       <div><div class="mi-item-l">Seats</div><div class="mi-item-v">Limited<br>by Intention</div></div>
     </div>
     <p class="mi-note">This event is designed to be intimate and focused. Once seats are filled, registration closes.</p>
-    <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" class="btn-hero" style="display:inline-block;padding:15px 48px"><span>Reserve Your Seat</span></a>
+    <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-hero" style="display:inline-block;padding:15px 48px"><span>Reserve Your Seat</span></a>
     <div class="orn" style="margin-top:28px">— ✦ Cobalt Blue Foundation ✦ —</div>
   </div>
 </section>
@@ -547,32 +552,32 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
     <p style="font-family:var(--fh);font-style:italic;color:rgba(240,222,176,.55);max-width:480px;margin:16px auto 0;font-size:1.05rem">Choose the pass that suits you. All passes include full lecture access.</p>
   </div>
   <div class="pricing-grid">
-    <div class="pc feat rev">
+    <div class="pc feat">
       <div class="pc-type">Student Pass</div>
       <div class="pc-amt">FREE</div>
       <ul class="pc-list">
         <li>Full Lecture Access</li><li>Live Participation</li><li>Zoom Access</li><li>Event Resources</li>
       </ul>
       <p class="pc-note">+ Optional Certificate Add-on for ₹299</p>
-      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" class="btn-reg">Register Free</a>
+      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-reg">Register Free</a>
     </div>
-    <div class="pc rev">
+    <div class="pc">
       <div class="pc-type">Certificate Add-on</div>
       <div class="pc-amt"><sup>₹</sup>299</div>
       <ul class="pc-list">
         <li>Official CBF Certificate</li><li>Digital Recognition</li><li>Available for Students</li>
       </ul>
       <p class="pc-note">Added during your Student Pass registration</p>
-      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" class="btn-reg ol">Add On</a>
+      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-reg ol">Add On</a>
     </div>
-    <div class="pc rev">
+    <div class="pc">
       <div class="pc-type">Adult Pass</div>
       <div class="pc-amt"><sup>₹</sup>99</div>
       <ul class="pc-list">
         <li>Full Lecture Access</li><li>Zoom Access</li><li>Event Resources</li>
       </ul>
       <p class="pc-note">&nbsp;</p>
-      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" class="btn-reg ol">Register Now</a>
+      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-reg ol">Register Now</a>
     </div>
   </div>
   <div style="text-align:center;margin-top:8px" class="rev">
@@ -588,7 +593,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
     <p class="fcta-q2 rev">Now discover it.</p>
     <h2 class="fcta-title rev">When <em>Gods</em><br>Came Home</h2>
     <div class="orn rev">— ✦ —</div>
-    <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" class="btn-fcta rev" style="margin-top:28px"><span>Reserve Your Seat</span></a>
+    <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-fcta rev" style="margin-top:28px"><span>Reserve Your Seat</span></a>
     <p class="fcta-meta rev">27 June 2026 · 4:00 PM IST · Live via Zoom · Cobalt Blue Foundation</p>
   </div>
 </section>
@@ -612,14 +617,14 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
         <li><a href="#story">The Story</a></li>
         <li><a href="#discover">What You'll Discover</a></li>
         <li><a href="#details">Event Details</a></li>
-        <li><a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank">Register Now →</a></li>
+        <li><a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer">Register Now →</a></li>
       </ul>
     </div>
     <div>
       <div class="fc-ttl">Connect</div>
       <ul class="fc-links">
-        <li><a href="https://www.cobaltbluefoundation.com" target="_blank">🌐 cobaltbluefoundation.com</a></li>
-        <li><a href="https://www.instagram.com/cobaltbluefoundation" target="_blank">📸 @cobaltbluefoundation</a></li>
+        <li><a href="https://www.cobaltbluefoundation.com" target="_blank" rel="noopener noreferrer">🌐 cobaltbluefoundation.com</a></li>
+        <li><a href="https://www.instagram.com/cobaltbluefoundation" target="_blank" rel="noopener noreferrer">📸 @cobaltbluefoundation</a></li>
         <li><a href="mailto:cobaltblueworkshops@gmail.com">✉️ cobaltblueworkshops@gmail.com</a></li>
       </ul>
     </div>
@@ -688,53 +693,4 @@ document.querySelectorAll('.story-p').forEach(p => {
   gsap.fromTo(p,
     { opacity: 0, y: 28 },
     { opacity: 1, y: 0, duration: .85, ease: 'power2.out',
-      scrollTrigger: { trigger: p, start: 'top 82%', toggleActions: 'play none none none' }
-    }
-  );
-});
-
-// Parallax on hero glow
-gsap.to('.hv-glow', { y: -70, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
-
-// Particles
-(function(){
-  const c = document.getElementById('pts');
-  if (!c) return;
-  const style = document.createElement('style');
-  style.textContent = Array.from({length: 25}, (_, i) => `
-    .pt${i}{
-      position:absolute;
-      width:${1+Math.random()*2}px;height:${1+Math.random()*2}px;
-      background:var(--gold);border-radius:50%;
-      left:${Math.random()*100}%;top:${Math.random()*100}%;
-      animation:fp ${5+Math.random()*8}s ease-in-out ${Math.random()*6}s infinite;
-      opacity:0;
-    }
-    @keyframes fp${i}{0%{opacity:0;transform:translateY(0)}20%{opacity:${.2+Math.random()*.5}}80%{opacity:${.1+Math.random()*.3}}100%{opacity:0;transform:translateY(-${60+Math.random()*80}px)}}
-  `).join('');
-  // Use a single keyframe name
-  const sfx = document.createElement('style');
-  sfx.textContent = `@keyframes fp{0%{opacity:0;transform:translateY(0)}25%{opacity:.4}75%{opacity:.15}100%{opacity:0;transform:translateY(-80px)}}`;
-  document.head.appendChild(sfx);
-  for (let i = 0; i < 25; i++) {
-    const p = document.createElement('div');
-    p.style.cssText = `position:absolute;width:${1+Math.random()*2.5}px;height:${1+Math.random()*2.5}px;background:rgba(196,137,42,${.3+Math.random()*.5});border-radius:50%;left:${Math.random()*100}%;top:${Math.random()*100}%;animation:fp ${5+Math.random()*9}s ease-in-out ${Math.random()*7}s infinite;opacity:0;`;
-    c.appendChild(p);
-  }
-})();
-
-// Smooth scroll anchors
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-  });
-});
-
-// Try to load team images from uploaded files
-
-// Attempt (will silently fail if files not found by exact name)
-
-</script>
-</body>
-</html>
+      scrollTrigger: { trig
