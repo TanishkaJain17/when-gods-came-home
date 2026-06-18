@@ -74,6 +74,19 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 @keyframes scrl{0%,100%{opacity:.4;transform:scaleY(1)}50%{opacity:1;transform:scaleY(.65)}}
 
 /* HERO VISUAL */
+.nav-logo-img{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+  display:block;
+}
+  .hero-logo{
+  width:140px;
+  height:auto;
+  display:block;
+  margin:0 auto 28px;
+  filter:drop-shadow(0 10px 30px rgba(0,0,0,.3));
+}
 .hero-visual{position:relative;overflow:hidden}
 .hv-bg{position:absolute;inset:0;background:linear-gradient(145deg,#3D1500 0%,#1A0800 55%,#0D0400 100%)}
 .hv-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 35% 65%,rgba(196,137,42,.18) 0%,transparent 60%),radial-gradient(ellipse at 75% 25%,rgba(224,85,0,.12) 0%,transparent 50%)}
@@ -197,6 +210,15 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .btn-reg:hover{background:transparent;color:var(--orange)}
 .btn-reg.ol{background:transparent;border-color:rgba(196,137,42,.35);color:var(--gold)}
 .btn-reg.ol:hover{background:rgba(196,137,42,.1);border-color:var(--gold)}
+.team-img{
+  width:100%;
+  max-width:320px;
+  height:420px;
+  object-fit:cover;
+  border-radius:24px;
+  border:1px solid rgba(196,137,42,.35);
+  box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
 
 /* FINAL CTA */
 .fcta-sec{background:var(--dark);padding:clamp(80px,12vw,150px) clamp(20px,5vw,80px);text-align:center;position:relative;overflow:hidden}
@@ -266,18 +288,13 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 
 <!-- NAV -->
 <nav class="nav" id="nav">
-  <a href="#" class="nav-logo">
-    <svg class="nav-logo-svg" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="20" cy="20" r="20" fill="white"/>
-      <path d="M12 7 Q16 5 18 11 L20 18 Q14 20 12 15 Z" fill="#C0392B"/>
-      <path d="M18 9 Q23 7 24 13 L22 19 Q18 17 18 13 Z" fill="#E05500"/>
-      <circle cx="20" cy="11" r="3" fill="#A02800"/>
-      <circle cx="20" cy="6.5" r="1.2" fill="#999"/>
-      <circle cx="17" cy="6" r="1" fill="#999"/>
-      <circle cx="23" cy="6" r="1" fill="#999"/>
-      <path d="M14 16 Q18 26 16 33 Q12 36 10 31 L9 24 Q11 16 14 16 Z" fill="#8B2000"/>
-      <path d="M20 18 Q28 19 28 27 Q26 33 16 33 Z" fill="#E05500" opacity=".9"/>
-    </svg>
+<a href="#" class="nav-logo">
+  <img src="cbf-logo.png" alt="Cobalt Blue Foundation" class="nav-logo-img">
+  <div class="nav-brand">
+    Cobalt Blue Foundation
+    <small>Art · Culture · Heritage</small>
+  </div>
+</a>
     <div class="nav-brand">Cobalt Blue Foundation <small>Art · Culture · Heritage</small></div>
   </a>
   <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" class="nav-btn">Reserve Your Seat</a>
@@ -286,6 +303,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-content">
+    <img src="cbf-logo.png" alt="Cobalt Blue Foundation" class="hero-logo">
     <div class="hero-eyebrow"><span>Cobalt Blue Foundation Presents</span></div>
     <h1 class="hero-title">When<br><em>Gods</em><br>Came Home</h1>
     <p class="hero-sub">The Story Behind The Images That<br>Shaped A Nation's Imagination</p>
@@ -468,10 +486,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   <div class="team-grid">
     <div class="team-card rev">
       <!-- Founder photo: Sundeep Verma wears teal kurta, rocky background -->
-      <div class="team-img-ph" id="fPhoto" style="background:linear-gradient(145deg,#1A0C06,#2E1508);color:rgba(196,137,42,.45);font-size:.6rem;letter-spacing:.08em;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px">
-        <svg width="48" height="48" viewBox="0 0 48 48" style="opacity:.3"><circle cx="24" cy="18" r="10" fill="currentColor"/><ellipse cx="24" cy="42" rx="16" ry="10" fill="currentColor"/></svg>
-        <span>Sundeep Verma</span>
-      </div>
+     <img src="founder.jpg" alt="Sundeep Verma" class="team-img">
       <div>
         <div class="ti-role">Founder</div>
         <h3 class="ti-name">Sundeep Verma</h3>
@@ -479,11 +494,7 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
         <p class="ti-bio">Author, graphic novelist and storyteller with senior leadership experience at Ogilvy, Grey Worldwide and Omnicom Group. Holds an MA in Narrative Environment Design from Central Saint Martins, UK. Internationally recognised for workshops, keynotes and publications connecting myth and wellbeing.</p>
       </div>
     </div>
-    <div class="team-card rev">
-      <div class="team-img-ph" id="cfPhoto" style="background:linear-gradient(145deg,#1A0C06,#2E1508);color:rgba(196,137,42,.45);font-size:.6rem;letter-spacing:.08em;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px">
-        <svg width="48" height="48" viewBox="0 0 48 48" style="opacity:.3"><circle cx="24" cy="18" r="10" fill="currentColor"/><ellipse cx="24" cy="42" rx="16" ry="10" fill="currentColor"/></svg>
-        <span>Ruchi Ruuh</span>
-      </div>
+  <img src="cofounder.jpg" alt="Ruchi Ruuh" class="team-img">
       <div>
         <div class="ti-role">Co-Founder</div>
         <h3 class="ti-name">Ruchi Ruuh</h3>
@@ -730,8 +741,7 @@ async function tryLoadImage(id, filename) {
   } catch(e) {}
 }
 // Attempt (will silently fail if files not found by exact name)
-tryLoadImage('fPhoto', 'image_4.png');
-tryLoadImage('cfPhoto', 'image_4.png');
+
 </script>
 </body>
 </html>
