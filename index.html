@@ -693,4 +693,53 @@ document.querySelectorAll('.story-p').forEach(p => {
   gsap.fromTo(p,
     { opacity: 0, y: 28 },
     { opacity: 1, y: 0, duration: .85, ease: 'power2.out',
-      scrollTrigger: { trig
+      scrollTrigger: { trigger: p, start: 'top 82%', toggleActions: 'play none none none' }
+    }
+  );
+});
+
+// Parallax on hero glow
+gsap.to('.hv-glow', { y: -70, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+// Particles
+(function(){
+  const c = document.getElementById('pts');
+  if (!c) return;
+  const style = document.createElement('style');
+  style.textContent = Array.from({length: 25}, (_, i) => `
+    .pt${i}{
+      position:absolute;
+      width:${1+Math.random()*2}px;height:${1+Math.random()*2}px;
+      background:var(--gold);border-radius:50%;
+      left:${Math.random()*100}%;top:${Math.random()*100}%;
+      animation:fp ${5+Math.random()*8}s ease-in-out ${Math.random()*6}s infinite;
+      opacity:0;
+    }
+    @keyframes fp${i}{0%{opacity:0;transform:translateY(0)}20%{opacity:${.2+Math.random()*.5}}80%{opacity:${.1+Math.random()*.3}}100%{opacity:0;transform:translateY(-${60+Math.random()*80}px)}}
+  `).join('');
+  // Use a single keyframe name
+  const sfx = document.createElement('style');
+  sfx.textContent = `@keyframes fp{0%{opacity:0;transform:translateY(0)}25%{opacity:.4}75%{opacity:.15}100%{opacity:0;transform:translateY(-80px)}}`;
+  document.head.appendChild(sfx);
+  for (let i = 0; i < 25; i++) {
+    const p = document.createElement('div');
+    p.style.cssText = `position:absolute;width:${1+Math.random()*2.5}px;height:${1+Math.random()*2.5}px;background:rgba(196,137,42,${.3+Math.random()*.5});border-radius:50%;left:${Math.random()*100}%;top:${Math.random()*100}%;animation:fp ${5+Math.random()*9}s ease-in-out ${Math.random()*7}s infinite;opacity:0;`;
+    c.appendChild(p);
+  }
+})();
+
+// Smooth scroll anchors
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+// Try to load team images from uploaded files
+
+// Attempt (will silently fail if files not found by exact name)
+
+</script>
+</body>
+</html>
