@@ -24,13 +24,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-<style>
+
+<!-- BUGFIX: this was previously sitting inside the <style> tag (invalid CSS). Moved here. -->
+<script>
   window.addEventListener("load", () => {
-  document.body.classList.add("loaded");
-});
-  if (window.gsap && window.ScrollTrigger) {
-  gsap.registerPlugin(ScrollTrigger);
-}
+    document.body.classList.add("loaded");
+  });
+</script>
+
+<style>
 :root{
   --parch:#F0DEB4;--parch-l:#FAF3E0;--parch-d:#E2CB95;
   --brown:#2A0E00;--brown-m:#6B3020;--brown-s:#9C5030;
@@ -129,6 +131,22 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 @keyframes flicker{0%{transform:translateX(-50%) scale(1);opacity:.7}100%{transform:translateX(-50%) scale(1.35);opacity:1}}
 #pts{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 
+/* CHANGE 3: HERO RIGHT-SIDE POSTER — replaces the old .hv-frame text panel.
+   Sized/positioned the same way the frame was (centered, 68% width, 3:4),
+   styled with the same rounded-corner + shadow language used on .team-img. */
+.hero-poster{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:68%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  border-radius:20px;
+  border:2px solid rgba(196,137,42,.45);
+  box-shadow:0 24px 70px rgba(0,0,0,.45);
+  z-index:1;
+}
+
 /* SECTION BASE */
 .sec{padding:clamp(60px,8vw,110px) clamp(20px,5vw,80px)}
 .sh{text-align:center;margin-bottom:56px}
@@ -168,7 +186,8 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .disc-card:hover::after{transform:scaleX(1)}
 .dc-n{font-family:var(--fd);font-size:3.8rem;font-weight:900;color:rgba(196,137,42,.13);line-height:1;margin-bottom:10px}
 .dc-t{font-family:var(--fd);font-size:1.15rem;color:var(--brown);margin-bottom:8px}
-.dc-sub{font-style:italic;font-size:.88rem;color:var(--brown-m)}
+/* CHANGE 4: body copy in this section is no longer italic (label headings above are untouched) */
+.dc-sub{font-style:normal;font-size:.88rem;color:var(--brown-m)}
 
 /* WHO ATTENDS */
 .who-sec{background:var(--dark-s)}
@@ -183,6 +202,13 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .about-grid{display:grid;grid-template-columns:220px 1fr;gap:72px;align-items:start;max-width:1150px;margin:0 auto}
 .about-logo-wrap{display:flex;flex-direction:column;align-items:center;gap:24px}
 .about-logo-circle{width:150px;height:150px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid rgba(196,137,42,.25);overflow:hidden;box-shadow:0 4px 32px rgba(42,14,0,.1)}
+/* CHANGE 5: scoped override so the About logo fills its 150px circle properly,
+   without affecting the smaller nav/hero/footer logo instances that share .logo-img */
+.about-logo-circle .logo-img{
+  width:78%;
+  height:78%;
+  object-fit:contain;
+}
 .pillar{padding:6px 13px;border:1px solid rgba(92,42,16,.28);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brown-m)}
 .pillar-wrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
 .about-txt h2{font-family:var(--fd);font-size:clamp(1.8rem,3.2vw,2.8rem);color:var(--brown);margin-bottom:20px}
@@ -223,6 +249,11 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .pc-type{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
 .pc-amt{font-family:var(--fd);font-size:3.5rem;font-weight:700;color:var(--parch-l);line-height:1;margin-bottom:6px}
 .pc-amt sup{font-size:1.8rem}
+/* CHANGE 6: struck-through old price + prominent new price, same type scale as .pc-amt */
+.pc-amt-combo{display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap}
+.pc-amt-old{font-family:var(--fh);font-size:1.5rem;font-style:italic;color:rgba(240,222,176,.4);text-decoration:line-through;text-decoration-color:rgba(224,85,0,.6)}
+.pc-amt-live{font-family:var(--fd);font-size:3.5rem;font-weight:700;color:var(--parch-l);line-height:1}
+.pc-amt-live sup{font-size:1.8rem}
 .pc-list{margin:28px 0;text-align:left}
 .pc-list li{list-style:none;padding:9px 0;border-bottom:1px solid rgba(196,137,42,.1);color:rgba(240,222,176,.68);font-size:.88rem;display:flex;align-items:center;gap:10px}
 .pc-list li::before{content:'—';color:var(--gold);flex-shrink:0}
@@ -274,7 +305,6 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
   transform: translateY(44px);
   transition: all 0.6s ease;
 }
-
 body.loaded .rev {
   opacity: 1;
   transform: none;
@@ -311,6 +341,9 @@ body.loaded .rev {
   .seats-tag{margin-left:0}
   .mi-grid{grid-template-columns:1fr 1fr}
   .pricing-grid{grid-template-columns:1fr}
+  .pc-amt-combo{gap:10px}
+  .pc-amt-old{font-size:1.2rem}
+  .pc-amt-live{font-size:2.8rem}
 }
 </style>
 </head>
@@ -336,8 +369,13 @@ body.loaded .rev {
   <div class="hero-content">
     <img src="cbf-logo.png" alt="Cobalt Blue Foundation" class="hero-logo">
     <div class="hero-eyebrow"><span>Cobalt Blue Foundation Presents</span></div>
-    <h1 class="hero-title">When<br><em>Gods</em><br>Came Home</h1>
-    <p class="hero-sub">The Story Behind The Images That<br>Shaped A Nation's Imagination</p>
+
+    <!-- CHANGE 1: HERO TITLE — all caps, same markup/line-breaks/em styling -->
+    <h1 class="hero-title">WHEN<br><em>GODS</em><br>CAME HOME</h1>
+
+    <!-- CHANGE 2: HERO QUOTE — new two-line copy, all caps -->
+    <p class="hero-sub">SOME IMAGES CHANGE ART.<br>SOME CHANGE A CIVILISATION.</p>
+
     <div class="hero-rule"></div>
     <div class="hero-meta">
       <div class="meta-item"><div class="meta-l">Date</div><div class="meta-v">27 June 2026</div></div>
@@ -372,16 +410,11 @@ body.loaded .rev {
     <div class="hv-bg"></div>
     <div class="hv-glow"></div>
     <div id="pts"></div>
-    <div class="hv-frame">
-      <div class="hv-corner tl"></div><div class="hv-corner tr"></div>
-      <div class="hv-corner bl"></div><div class="hv-corner br"></div>
-      <div class="hv-inner">
-        <p class="hv-quote">"You've seen the result.<br>You've never heard the story."</p>
-        <p class="hv-title">When Gods<br>Came Home</p>
-        <div class="hv-rule">— ✦ —</div>
-        <p class="hv-sub">One Person Quietly<br>Hacked India's Imagination.<br><br>No social media.<br>No television. No internet.</p>
-      </div>
-    </div>
+
+    <!-- CHANGE 3: HERO POSTER — old .hv-frame text panel removed, replaced with poster.jpg
+         in the same right-side position. .hv-glow / #pts / .hv-glow2 kept as ambient lighting. -->
+    <img src="poster.jpg" alt="When Gods Came Home — Event Poster" class="hero-poster">
+
     <div class="hv-glow2"></div>
   </div>
 </section>
@@ -473,6 +506,7 @@ body.loaded .rev {
   <div class="about-grid">
     <div class="about-logo-wrap rev">
       <div class="about-logo-circle">
+       <!-- CHANGE 5: logo fix via .about-logo-circle .logo-img CSS override above -->
        <img src="cbf-logo.png" alt="CBF Logo" class="logo-img">
       </div>
       <div class="pillar-wrap">
@@ -566,24 +600,20 @@ body.loaded .rev {
     <div class="sh-div"></div>
     <p style="font-family:var(--fh);font-style:italic;color:rgba(240,222,176,.55);max-width:480px;margin:16px auto 0;font-size:1.05rem">Choose the pass that suits you. All passes include full lecture access.</p>
   </div>
+
+  <!-- CHANGE 6: pricing cards re-priced and reordered (Student → Adult → Certificate) -->
   <div class="pricing-grid">
     <div class="pc feat">
       <div class="pc-type">Student Pass</div>
-      <div class="pc-amt">FREE</div>
+      <div class="pc-amt pc-amt-combo">
+        <span class="pc-amt-old">₹99</span>
+        <span class="pc-amt-live"><sup>₹</sup>0</span>
+      </div>
       <ul class="pc-list">
         <li>Full Lecture Access</li><li>Live Participation</li><li>Zoom Access</li><li>Event Resources</li>
       </ul>
-      <p class="pc-note">+ Optional Certificate Add-on for ₹299</p>
+      <p class="pc-note">Free Attendance · Certificate Add-on Available</p>
       <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-reg">Register Free</a>
-    </div>
-    <div class="pc">
-      <div class="pc-type">Certificate Add-on</div>
-      <div class="pc-amt"><sup>₹</sup>299</div>
-      <ul class="pc-list">
-        <li>Official CBF Certificate</li><li>Digital Recognition</li><li>Available for Students</li>
-      </ul>
-      <p class="pc-note">Added during your Student Pass registration</p>
-      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-reg ol">Add On</a>
     </div>
     <div class="pc">
       <div class="pc-type">Adult Pass</div>
@@ -591,10 +621,20 @@ body.loaded .rev {
       <ul class="pc-list">
         <li>Full Lecture Access</li><li>Zoom Access</li><li>Event Resources</li>
       </ul>
-      <p class="pc-note">&nbsp;</p>
+      <p class="pc-note">Full Access</p>
       <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-reg ol">Register Now</a>
     </div>
+    <div class="pc">
+      <div class="pc-type">Certificate Add-on</div>
+      <div class="pc-amt"><sup>₹</sup>299</div>
+      <ul class="pc-list">
+        <li>Official CBF Certificate</li><li>Digital Recognition</li><li>Available for Students</li>
+      </ul>
+      <p class="pc-note">Official Cobalt Blue Foundation Certificate</p>
+      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-reg ol">Add On</a>
+    </div>
   </div>
+
   <div style="text-align:center;margin-top:8px" class="rev">
     <div class="seats-tag" style="display:inline-flex">Seats Are Limited By Intention</div>
   </div>
@@ -669,7 +709,7 @@ document.querySelectorAll('.rev').forEach(el => {
 
 // Hero entrance
 gsap.from('.hero-content > *', { opacity: 0, y: 32, duration: .9, stagger: .13, ease: 'power3.out', delay: .3 });
-gsap.from('.hv-frame', { opacity: 0, scale: .88, duration: 1.6, ease: 'power3.out', delay: .9 });
+gsap.from('.hero-poster', { opacity: 0, scale: .92, duration: 1.6, ease: 'power3.out', delay: .9 });
 
 // Why cards stagger
 gsap.fromTo('.why-card',
@@ -720,19 +760,6 @@ gsap.to('.hv-glow', { y: -70, ease: 'none', scrollTrigger: { trigger: '.hero', s
 (function(){
   const c = document.getElementById('pts');
   if (!c) return;
-  const style = document.createElement('style');
-  style.textContent = Array.from({length: 25}, (_, i) => `
-    .pt${i}{
-      position:absolute;
-      width:${1+Math.random()*2}px;height:${1+Math.random()*2}px;
-      background:var(--gold);border-radius:50%;
-      left:${Math.random()*100}%;top:${Math.random()*100}%;
-      animation:fp ${5+Math.random()*8}s ease-in-out ${Math.random()*6}s infinite;
-      opacity:0;
-    }
-    @keyframes fp${i}{0%{opacity:0;transform:translateY(0)}20%{opacity:${.2+Math.random()*.5}}80%{opacity:${.1+Math.random()*.3}}100%{opacity:0;transform:translateY(-${60+Math.random()*80}px)}}
-  `).join('');
-  // Use a single keyframe name
   const sfx = document.createElement('style');
   sfx.textContent = `@keyframes fp{0%{opacity:0;transform:translateY(0)}25%{opacity:.4}75%{opacity:.15}100%{opacity:0;transform:translateY(-80px)}}`;
   document.head.appendChild(sfx);
@@ -750,11 +777,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
-
-// Try to load team images from uploaded files
-
-// Attempt (will silently fail if files not found by exact name)
-
 </script>
 </body>
 </html>
