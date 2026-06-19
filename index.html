@@ -201,13 +201,25 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .about-sec{background:var(--parch-l)}
 .about-grid{display:grid;grid-template-columns:220px 1fr;gap:72px;align-items:start;max-width:1150px;margin:0 auto}
 .about-logo-wrap{display:flex;flex-direction:column;align-items:center;gap:24px}
-.about-logo-circle{width:150px;height:150px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid rgba(196,137,42,.25);overflow:hidden;box-shadow:0 4px 32px rgba(42,14,0,.1)}
-/* CHANGE 5: scoped override so the About logo fills its 150px circle properly,
-   without affecting the smaller nav/hero/footer logo instances that share .logo-img */
+.about-logo-circle{
+  width:260px;
+  height:auto;
+  background:transparent;
+  border:none;
+  border-radius:0;
+  overflow:visible;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:none;
+}
+
 .about-logo-circle .logo-img{
-  width:78%;
-  height:78%;
+  width:100%;
+  max-width:260px;
+  height:auto;
   object-fit:contain;
+  display:block;
 }
 .pillar{padding:6px 13px;border:1px solid rgba(92,42,16,.28);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brown-m)}
 .pillar-wrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
