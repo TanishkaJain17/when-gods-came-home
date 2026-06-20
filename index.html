@@ -25,7 +25,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-<!-- BUGFIX: this was previously sitting inside the <style> tag (invalid CSS). Moved here. -->
 <script>
   window.addEventListener("load", () => {
     document.body.classList.add("loaded");
@@ -131,9 +130,6 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 @keyframes flicker{0%{transform:translateX(-50%) scale(1);opacity:.7}100%{transform:translateX(-50%) scale(1.35);opacity:1}}
 #pts{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 
-/* CHANGE 3: HERO RIGHT-SIDE POSTER — replaces the old .hv-frame text panel.
-   Sized/positioned the same way the frame was (centered, 68% width, 3:4),
-   styled with the same rounded-corner + shadow language used on .team-img. */
 .hero-poster{
   position:absolute;
   top:50%;left:50%;
@@ -186,7 +182,6 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .disc-card:hover::after{transform:scaleX(1)}
 .dc-n{font-family:var(--fd);font-size:3.8rem;font-weight:900;color:rgba(196,137,42,.13);line-height:1;margin-bottom:10px}
 .dc-t{font-family:var(--fd);font-size:1.15rem;color:var(--brown);margin-bottom:8px}
-/* CHANGE 4: body copy in this section is no longer italic (label headings above are untouched) */
 .dc-sub{font-style:normal;font-size:.88rem;color:var(--brown-m)}
 
 /* WHO ATTENDS */
@@ -201,25 +196,11 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .about-sec{background:var(--parch-l)}
 .about-grid{display:grid;grid-template-columns:220px 1fr;gap:72px;align-items:start;max-width:1150px;margin:0 auto}
 .about-logo-wrap{display:flex;flex-direction:column;align-items:center;gap:24px}
-.about-logo-circle{
-  width:260px;
-  height:auto;
-  background:transparent;
-  border:none;
-  border-radius:0;
-  overflow:visible;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:none;
-}
-
+.about-logo-circle{width:150px;height:150px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid rgba(196,137,42,.25);overflow:hidden;box-shadow:0 4px 32px rgba(42,14,0,.1)}
 .about-logo-circle .logo-img{
-  width:100%;
-  max-width:260px;
-  height:auto;
+  width:78%;
+  height:78%;
   object-fit:contain;
-  display:block;
 }
 .pillar{padding:6px 13px;border:1px solid rgba(92,42,16,.28);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brown-m)}
 .pillar-wrap{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
@@ -261,7 +242,6 @@ body::after{content:'';position:fixed;inset:0;background:url("data:image/svg+xml
 .pc-type{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
 .pc-amt{font-family:var(--fd);font-size:3.5rem;font-weight:700;color:var(--parch-l);line-height:1;margin-bottom:6px}
 .pc-amt sup{font-size:1.8rem}
-/* CHANGE 6: struck-through old price + prominent new price, same type scale as .pc-amt */
 .pc-amt-combo{display:flex;align-items:baseline;justify-content:center;gap:14px;flex-wrap:wrap}
 .pc-amt-old{font-family:var(--fh);font-size:1.5rem;font-style:italic;color:rgba(240,222,176,.4);text-decoration:line-through;text-decoration-color:rgba(224,85,0,.6)}
 .pc-amt-live{font-family:var(--fd);font-size:3.5rem;font-weight:700;color:var(--parch-l);line-height:1}
@@ -371,7 +351,7 @@ body.loaded .rev {
     </div>
   </a>
 
-  <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="nav-btn">
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_dJbIjnftG4ap2wfeWstyG6pOcIT5sF1m-RUFWhmTICVAQA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="nav-btn">
     Reserve Your Seat
   </a>
 </nav>
@@ -382,10 +362,8 @@ body.loaded .rev {
     <img src="cbf-logo.png" alt="Cobalt Blue Foundation" class="hero-logo">
     <div class="hero-eyebrow"><span>Cobalt Blue Foundation Presents</span></div>
 
-    <!-- CHANGE 1: HERO TITLE — all caps, same markup/line-breaks/em styling -->
     <h1 class="hero-title">WHEN<br><em>GODS</em><br>CAME HOME</h1>
 
-    <!-- CHANGE 2: HERO QUOTE — new two-line copy, all caps -->
     <p class="hero-sub">SOME IMAGES CHANGE ART.<br>SOME CHANGE A CIVILISATION.</p>
 
     <div class="hero-rule"></div>
@@ -411,7 +389,7 @@ body.loaded .rev {
       <div class="seats-tag">Limited Seats</div>
     </div>
     <div class="hero-actions">
-      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-hero"><span>Reserve Your Seat</span></a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_dJbIjnftG4ap2wfeWstyG6pOcIT5sF1m-RUFWhmTICVAQA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="btn-hero"><span>Reserve Your Seat</span></a>
       <a href="#story" class="btn-ghost">Discover The Story</a>
     </div>
     <div class="scroll-cue"><div class="scroll-line"></div><span>Scroll</span></div>
@@ -423,8 +401,6 @@ body.loaded .rev {
     <div class="hv-glow"></div>
     <div id="pts"></div>
 
-    <!-- CHANGE 3: HERO POSTER — old .hv-frame text panel removed, replaced with poster.jpg
-         in the same right-side position. .hv-glow / #pts / .hv-glow2 kept as ambient lighting. -->
     <img src="poster.jpg" alt="When Gods Came Home — Event Poster" class="hero-poster">
 
     <div class="hv-glow2"></div>
@@ -470,7 +446,7 @@ body.loaded .rev {
     <p class="story-p lg">How did this happen?</p>
     <p class="story-p cen">That is the story we will explore.</p>
     <div style="text-align:center;margin-top:52px" class="story-p">
-      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:14px 42px;border:2px solid var(--gold);color:var(--gold);text-decoration:none;font-family:var(--fb);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;transition:.3s" onmouseover="this.style.background='rgba(196,137,42,.12)'" onmouseout="this.style.background='transparent'">Reserve Your Seat</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_dJbIjnftG4ap2wfeWstyG6pOcIT5sF1m-RUFWhmTICVAQA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:14px 42px;border:2px solid var(--gold);color:var(--gold);text-decoration:none;font-family:var(--fb);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;transition:.3s" onmouseover="this.style.background='rgba(196,137,42,.12)'" onmouseout="this.style.background='transparent'">Reserve Your Seat</a>
     </div>
   </div>
 </section>
@@ -518,7 +494,6 @@ body.loaded .rev {
   <div class="about-grid">
     <div class="about-logo-wrap rev">
       <div class="about-logo-circle">
-       <!-- CHANGE 5: logo fix via .about-logo-circle .logo-img CSS override above -->
        <img src="cbf-logo.png" alt="CBF Logo" class="logo-img">
       </div>
       <div class="pillar-wrap">
@@ -599,7 +574,7 @@ body.loaded .rev {
       <div><div class="mi-item-l">Seats</div><div class="mi-item-v">Limited<br>by Intention</div></div>
     </div>
     <p class="mi-note">This event is designed to be intimate and focused. Once seats are filled, registration closes.</p>
-    <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-hero" style="display:inline-block;padding:15px 48px"><span>Reserve Your Seat</span></a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_dJbIjnftG4ap2wfeWstyG6pOcIT5sF1m-RUFWhmTICVAQA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="btn-hero" style="display:inline-block;padding:15px 48px"><span>Reserve Your Seat</span></a>
     <div class="orn" style="margin-top:28px">— ✦ Cobalt Blue Foundation ✦ —</div>
   </div>
 </section>
@@ -613,7 +588,6 @@ body.loaded .rev {
     <p style="font-family:var(--fh);font-style:italic;color:rgba(240,222,176,.55);max-width:480px;margin:16px auto 0;font-size:1.05rem">Choose the pass that suits you. All passes include full lecture access.</p>
   </div>
 
-  <!-- CHANGE 6: pricing cards re-priced and reordered (Student → Adult → Certificate) -->
   <div class="pricing-grid">
     <div class="pc feat">
       <div class="pc-type">Student Pass</div>
@@ -625,7 +599,7 @@ body.loaded .rev {
         <li>Full Lecture Access</li><li>Live Participation</li><li>Zoom Access</li><li>Event Resources</li>
       </ul>
       <p class="pc-note">Free Attendance · Certificate Add-on Available</p>
-      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-reg">Register Free</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_dJbIjnftG4ap2wfeWstyG6pOcIT5sF1m-RUFWhmTICVAQA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="btn-reg">Register Free</a>
     </div>
     <div class="pc">
       <div class="pc-type">Adult Pass</div>
@@ -634,7 +608,7 @@ body.loaded .rev {
         <li>Full Lecture Access</li><li>Zoom Access</li><li>Event Resources</li>
       </ul>
       <p class="pc-note">Full Access</p>
-      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-reg ol">Register Now</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_dJbIjnftG4ap2wfeWstyG6pOcIT5sF1m-RUFWhmTICVAQA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="btn-reg ol">Register Now</a>
     </div>
     <div class="pc">
       <div class="pc-type">Certificate Add-on</div>
@@ -643,7 +617,7 @@ body.loaded .rev {
         <li>Official CBF Certificate</li><li>Digital Recognition</li><li>Available for Students</li>
       </ul>
       <p class="pc-note">Official Cobalt Blue Foundation Certificate</p>
-      <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-reg ol">Add On</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_dJbIjnftG4ap2wfeWstyG6pOcIT5sF1m-RUFWhmTICVAQA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="btn-reg ol">Add On</a>
     </div>
   </div>
 
@@ -660,7 +634,7 @@ body.loaded .rev {
     <p class="fcta-q2 rev">Now discover it.</p>
     <h2 class="fcta-title rev">When <em>Gods</em><br>Came Home</h2>
     <div class="orn rev">— ✦ —</div>
-    <a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer" class="btn-fcta rev" style="margin-top:28px"><span>Reserve Your Seat</span></a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSf_dJbIjnftG4ap2wfeWstyG6pOcIT5sF1m-RUFWhmTICVAQA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer" class="btn-fcta rev" style="margin-top:28px"><span>Reserve Your Seat</span></a>
     <p class="fcta-meta rev">27 June 2026 · 4:00 PM IST · Live via Zoom · Cobalt Blue Foundation</p>
   </div>
 </section>
@@ -684,7 +658,7 @@ body.loaded .rev {
         <li><a href="#story">The Story</a></li>
         <li><a href="#discover">What You'll Discover</a></li>
         <li><a href="#details">Event Details</a></li>
-        <li><a href="https://forms.gle/vom3XgrKLAZ14weT9" target="_blank" rel="noopener noreferrer">Register Now →</a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSf_dJbIjnftG4ap2wfeWstyG6pOcIT5sF1m-RUFWhmTICVAQA/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Register Now →</a></li>
       </ul>
     </div>
     <div>
